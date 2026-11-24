@@ -1,4 +1,4 @@
-import Eyebrow from "../ui/Eyebrow.jsx";
+import Eyebrow from "../ui/EyeBrow.jsx";
 import { getCategoryLabel } from "../../lib/products.js";
 
 export default function ProductInfo({ product }) {

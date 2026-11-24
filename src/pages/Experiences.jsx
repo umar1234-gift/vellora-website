@@ -5,7 +5,7 @@ import LinkButton from "../components/ui/LinkButton.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
 import Seo from "../components/ui/Seo.jsx";
 import ExperienceCard from "../components/shared/ExperienceCard.jsx";
-import Lightbox from "../components/ui/Lightbox.jsx";
+import Lightbox from "../components/ui/LightBox.jsx";
 import { experiences } from "../data/experiences.js";
 
 const PLACEHOLDER_COUNT = 6;

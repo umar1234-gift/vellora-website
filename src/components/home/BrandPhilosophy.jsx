@@ -1,6 +1,6 @@
 import Container from "../ui/Container.jsx";
 import Section from "../ui/Section.jsx";
-import Eyebrow from "../ui/Eyebrow.jsx";
+import Eyebrow from "../ui/EyeBrow.jsx";
 import Reveal from "../ui/Reveal.jsx";
 
 export default function BrandPhilosophy() {

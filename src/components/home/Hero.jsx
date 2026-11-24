@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Container from "../ui/Container.jsx";
 import LinkButton from "../ui/LinkButton.jsx";
-import Eyebrow from "../ui/Eyebrow.jsx";
+import Eyebrow from "../ui/EyeBrow.jsx";
 import Reveal from "../ui/Reveal.jsx";
 import { site } from "../../config/site.js";
 import { getCatalogueHref, isCatalogueExternal } from "../../lib/links.js";
