@@ -1,4 +1,4 @@
-import Eyebrow from "./Eyebrow.jsx";
+import Eyebrow from "./EyeBrow.jsx";
 
 /**
  * Consistent section heading: optional eyebrow, a display serif title,
