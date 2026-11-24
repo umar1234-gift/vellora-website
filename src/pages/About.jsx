@@ -1,5 +1,5 @@
 import Container from "../components/ui/Container.jsx";
-import Eyebrow from "../components/ui/Eyebrow.jsx";
+import Eyebrow from "../components/ui/EyeBrow.jsx";
 import SectionHeading from "../components/ui/SectionHeading.jsx";
 import LinkButton from "../components/ui/LinkButton.jsx";
 import Reveal from "../components/ui/Reveal.jsx";

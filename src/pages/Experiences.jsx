@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Container from "../components/ui/Container.jsx";
-import Eyebrow from "../components/ui/Eyebrow.jsx";
+import Eyebrow from "../components/ui/EyeBrow.jsx";
 import LinkButton from "../components/ui/LinkButton.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
 import Seo from "../components/ui/Seo.jsx";
