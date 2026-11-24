@@ -21,7 +21,7 @@ export const site = {
 	 * Production domain, e.g. "https://vellora.com".
 	 * Leave `null` until the real domain is registered.
 	 */
-	domain: null,
+	domain: "https://shopvellora.me",
 
 	contact: {
 		/**
