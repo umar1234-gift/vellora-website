@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f2ea" />
+
+    <!--
+      Default metadata used before JavaScript hydrates. The <Seo>
+      component then overwrites these per route, and additionally
+      manages og:url, twitter:url, og:image, twitter:image and
+      <link rel="canonical"> — setting them when the corresponding
+      config values are available and removing any stale values
+      otherwise.
+    -->
+    <title>VELLORA — The Art of Timeless Luxury</title>
+    <meta
+      name="description"
+      content="VELLORA — a curated house of timeless luxury fashion and accessories. Discover selected handbags, shoes, watches, jewellery and sunglasses."
+    />
+
+    <meta property="og:title" content="VELLORA — The Art of Timeless Luxury" />
+    <meta
+      property="og:description"
+      content="A curated house of timeless luxury fashion and accessories."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="VELLORA" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VELLORA — The Art of Timeless Luxury" />
+    <meta
+      name="twitter:description"
+      content="A curated house of timeless luxury fashion and accessories."
+    />
+
+    <!--
+      og:url, twitter:url, og:image, twitter:image and <link rel="canonical">
+      are intentionally omitted here and managed by <Seo>. They are only
+      emitted when site.domain (plus the corresponding path or image) is
+      configured. Until then, <Seo> removes any stale values on every
+      navigation so old route metadata cannot leak through. Do not
+      publish a fabricated domain.
+    -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      VELLORA requires JavaScript to display. Please enable it in your
+      browser to view the collection.
+    </noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

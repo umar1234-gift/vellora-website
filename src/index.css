@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+/* ============================================================
+   VELLORA — Design tokens (Tailwind CSS v4 CSS-first config)
+   Quiet Luxury + Modern Editorial
+   ============================================================ */
+
+@theme {
+	/* ---------- Colour ---------- */
+	--color-background: #f7f2ea;
+	--color-surface: #efe8dc;
+	--color-ink: #17130f;
+	--color-ink-soft: #6e655a;
+	--color-champagne: #c9b48e;
+	--color-champagne-deep: #9a7b4f;
+	--color-border: #e2dfd9;
+
+	/* ---------- Typography ---------- */
+	--font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+	--font-body: "Jost", ui-sans-serif, system-ui, sans-serif;
+
+	--text-display: clamp(3rem, 8vw, 7rem);
+	--text-display--line-height: 0.95;
+	--text-display--letter-spacing: -0.02em;
+
+	--text-h1: clamp(2.5rem, 5vw, 4rem);
+	--text-h1--line-height: 1.05;
+
+	--text-h2: clamp(2rem, 3.5vw, 3rem);
+	--text-h2--line-height: 1.1;
+
+	--text-h3: clamp(1.5rem, 2.5vw, 2rem);
+	--text-h3--line-height: 1.2;
+
+	--text-body: 1.0625rem;
+	--text-body--line-height: 1.7;
+
+	--text-small: 0.875rem;
+	--text-small--line-height: 1.5;
+
+	--text-label: 0.6875rem;
+	--text-label--line-height: 1.2;
+	--text-label--letter-spacing: 0.18em;
+
+	/* ---------- Spacing ---------- */
+	--spacing-section: 6rem;
+	--spacing-section-lg: 10rem;
+	--spacing-gutter: 1.5rem;
+
+	/* ---------- Radius & shadow ---------- */
+	--radius-sm: 2px;
+	--radius-none: 0;
+	--shadow-none: none;
+
+	/* ---------- Motion ---------- */
+	--ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+	--duration-fast: 200ms;
+	--duration-base: 400ms;
+	--duration-slow: 700ms;
+}
+
+/* ============================================================
+   Base layer — typography defaults, accessibility, motion
+   ============================================================ */
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+	}
+
+	body {
+		@apply bg-background text-ink font-body text-body;
+		margin: 0;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		@apply font-display font-normal text-ink;
+	}
+
+	h1 {
+		@apply text-h1;
+	}
+	h2 {
+		@apply text-h2;
+	}
+	h3 {
+		@apply text-h3;
+	}
+
+	a {
+		@apply text-ink underline-offset-4 decoration-border;
+		transition:
+			color var(--duration-fast) var(--ease-luxury),
+			text-decoration-color var(--duration-fast) var(--ease-luxury);
+	}
+
+	a:hover {
+		@apply decoration-ink-soft;
+	}
+
+	::selection {
+		background-color: rgb(201 180 142 / 0.35);
+		color: var(--color-ink);
+	}
+
+	:focus-visible {
+		outline: none;
+		box-shadow:
+			0 0 0 2px var(--color-background),
+			0 0 0 4px var(--color-champagne-deep);
+		border-radius: var(--radius-sm);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+	}
+}
+
+/* ============================================================
+   Skip-to-content link — keyboard-only, revealed on focus
+   ============================================================ */
+
+.skip-link {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+.skip-link:focus {
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	z-index: 100;
+	width: auto;
+	height: auto;
+	padding: 0.75rem 1.25rem;
+	margin: 0;
+	overflow: visible;
+	clip: auto;
+	white-space: nowrap;
+	background: var(--color-ink);
+	color: var(--color-background);
+	text-decoration: none;
+	font-family: var(--font-body);
+	font-size: 0.6875rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	border-radius: var(--radius-sm);
+}
