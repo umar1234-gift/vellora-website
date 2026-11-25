@@ -6,6 +6,9 @@ import ProductDetail from "./pages/ProductDetail.jsx";
 import About from "./pages/About.jsx";
 import Experiences from "./pages/Experiences.jsx";
 import Contact from "./pages/Contact.jsx";
+import Terms from "./pages/Terms.jsx";
+import Shipping from "./pages/Shipping.jsx";
+import Refund from "./pages/Refund.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 export default function App() {
@@ -19,6 +22,9 @@ export default function App() {
 				<Route path="/about" element={<About />} />
 				<Route path="/experiences" element={<Experiences />} />
 				<Route path="/contact" element={<Contact />} />
+				<Route path="/terms" element={<Terms />} />
+				<Route path="/shipping" element={<Shipping />} />
+				<Route path="/refund" element={<Refund />} />
 				<Route path="*" element={<NotFound />} />
 			</Route>
 		</Routes>

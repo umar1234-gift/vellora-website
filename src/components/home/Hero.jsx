@@ -1,21 +1,23 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import Container from "../ui/Container.jsx";
 import LinkButton from "../ui/LinkButton.jsx";
 import Eyebrow from "../ui/EyeBrow.jsx";
 import Reveal from "../ui/Reveal.jsx";
 import { site } from "../../config/site.js";
 import { getCatalogueHref, isCatalogueExternal } from "../../lib/links.js";
+import { buildWhatsAppUrl, isWhatsAppConfigured } from "../../lib/contact.js";
 import { heroImage } from "../../data/assets.js";
 
 export default function Hero() {
 	const catHref = getCatalogueHref();
 	const catExternal = isCatalogueExternal();
+	const waConfigured = isWhatsAppConfigured();
+	const waUrl = buildWhatsAppUrl();
 
 	return (
 		<section aria-labelledby="hero-headline">
 			<Container>
 				<div className="grid min-h-[calc(100svh-4rem)] items-center gap-12 py-12 sm:py-16 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-12 lg:gap-16 lg:py-20">
-					{/* Text column */}
 					<div className="lg:col-span-7">
 						<Reveal>
 							<Eyebrow rule>{site.brand.tagline}</Eyebrow>
@@ -42,7 +44,7 @@ export default function Hero() {
 						</Reveal>
 
 						<Reveal delay={0.3}>
-							<div className="mt-10 flex flex-wrap items-center gap-5">
+							<div className="mt-10 flex flex-wrap items-center gap-4">
 								<LinkButton
 									{...(catExternal ? { href: catHref } : { to: catHref })}
 									variant="solid"
@@ -52,6 +54,13 @@ export default function Hero() {
 									<ArrowRight className="h-4 w-4" strokeWidth={1.25} />
 								</LinkButton>
 
+								{waConfigured && waUrl && (
+									<LinkButton href={waUrl} variant="outline" size="lg">
+										<MessageCircle className="h-4 w-4" strokeWidth={1.25} />
+										Message on WhatsApp
+									</LinkButton>
+								)}
+
 								<LinkButton to="/collections" variant="ghost" size="lg">
 									Explore Collections
 								</LinkButton>
@@ -59,7 +68,6 @@ export default function Hero() {
 						</Reveal>
 					</div>
 
-					{/* Editorial image tile */}
 					<div className="lg:col-span-5">
 						<Reveal delay={0.15}>
 							<div className="relative aspect-[4/5] w-full overflow-hidden bg-surface">

@@ -1,11 +1,12 @@
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { X, Instagram, ArrowUpRight } from "lucide-react";
+import { X, Instagram, MessageCircle, ArrowUpRight } from "lucide-react";
 import Wordmark from "../shared/Wordmark.jsx";
 import LinkButton from "../ui/LinkButton.jsx";
 import { useLockBodyScroll } from "../../hooks/useLockBodyScroll.js";
 import { getCatalogueHref, isCatalogueExternal } from "../../lib/links.js";
+import { buildWhatsAppUrl, isWhatsAppConfigured } from "../../lib/contact.js";
 import { site } from "../../config/site.js";
 
 export default function MobileMenu({ open, onClose, nav }) {
@@ -58,6 +59,8 @@ export default function MobileMenu({ open, onClose, nav }) {
 
 	const catHref = getCatalogueHref();
 	const catExternal = isCatalogueExternal();
+	const waConfigured = isWhatsAppConfigured();
+	const waUrl = buildWhatsAppUrl();
 
 	const overlayMotion = {
 		initial: { opacity: 0 },
@@ -133,6 +136,19 @@ export default function MobileMenu({ open, onClose, nav }) {
 							>
 								View Full Catalogue
 							</LinkButton>
+
+							{waConfigured && waUrl && (
+								<LinkButton
+									href={waUrl}
+									variant="outline"
+									size="lg"
+									onClick={onClose}
+									className="w-full"
+								>
+									<MessageCircle className="h-4 w-4" strokeWidth={1.25} />
+									Message on WhatsApp
+								</LinkButton>
+							)}
 
 							<a
 								href={site.contact.instagram.profileUrl}

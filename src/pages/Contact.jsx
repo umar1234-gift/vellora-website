@@ -1,6 +1,7 @@
 import {
 	MessageCircle,
 	Instagram as InstagramIcon,
+	Mail,
 	ArrowUpRight,
 } from "lucide-react";
 import Container from "../components/ui/Container.jsx";
@@ -24,37 +25,13 @@ export default function Contact() {
 	const igProfile = buildInstagramProfileUrl();
 	const catHref = getCatalogueHref();
 	const catExternal = isCatalogueExternal();
-
-	/* Shared catalogue card body — used in both layouts */
-	const catalogueCard = (
-		<div className="h-full border border-border p-8">
-			<Eyebrow>Catalogue</Eyebrow>
-			<h3 className="mt-4 font-display text-h3">Full Catalogue</h3>
-			<p className="mt-4 text-body text-ink-soft">
-				The complete selection is hosted externally. Browse every piece in one
-				place.
-			</p>
-			<div className="mt-6">
-				{catExternal ? (
-					<LinkButton href={catHref} variant="outline" size="md">
-						View Full Catalogue
-						<ArrowUpRight className="h-4 w-4" strokeWidth={1.25} />
-					</LinkButton>
-				) : (
-					<LinkButton to={catHref} variant="outline" size="md">
-						Browse Collections
-						<ArrowUpRight className="h-4 w-4" strokeWidth={1.25} />
-					</LinkButton>
-				)}
-			</div>
-		</div>
-	);
+	const email = site.contact.email;
 
 	return (
 		<>
 			<Seo
 				title="Contact"
-				description="Message VELLORA on Instagram for personal assistance with any piece in the collection."
+				description="Contact VELLORA via WhatsApp, Instagram or email for personal assistance with any piece in the collection."
 				path="/contact"
 			/>
 
@@ -73,85 +50,101 @@ export default function Contact() {
 						</div>
 					</Reveal>
 
-					{waConfigured && waUrl ? (
-						/* ---------- WhatsApp configured: WhatsApp primary ---------- */
-						<>
-							<Reveal delay={0.1}>
-								<div className="mx-auto mt-16 max-w-3xl border border-border bg-surface p-8 sm:p-12">
-									<Eyebrow rule>WhatsApp — Primary</Eyebrow>
-									<h2 className="mt-4 font-display text-h3">
-										Speak with VELLORA
-									</h2>
-									<p className="mt-4 max-w-lg text-body text-ink-soft">
-										Personal assistance for any piece in the collection —
-										sizing, availability, or a private enquiry.
-									</p>
-									<div className="mt-8">
-										<LinkButton href={waUrl} variant="solid" size="lg">
-											<MessageCircle className="h-4 w-4" strokeWidth={1.25} />
-											Message on WhatsApp
-										</LinkButton>
-									</div>
+					{waConfigured && waUrl && (
+						<Reveal delay={0.1}>
+							<div className="mx-auto mt-16 max-w-3xl border border-border bg-surface p-8 sm:p-12">
+								<Eyebrow rule>WhatsApp — Primary</Eyebrow>
+								<h2 className="mt-4 font-display text-h3">
+									Speak with VELLORA
+								</h2>
+								<p className="mt-4 max-w-lg text-body text-ink-soft">
+									Personal assistance for any piece in the collection — sizing,
+									availability, or a private enquiry.
+								</p>
+								<div className="mt-8">
+									<LinkButton href={waUrl} variant="solid" size="lg">
+										<MessageCircle className="h-4 w-4" strokeWidth={1.25} />
+										Message on WhatsApp
+									</LinkButton>
 								</div>
-							</Reveal>
-
-							<div className="mx-auto mt-6 grid max-w-3xl gap-6 sm:grid-cols-2">
-								<Reveal delay={0.15}>
-									<div className="h-full border border-border p-8">
-										<Eyebrow>Instagram</Eyebrow>
-										<h3 className="mt-4 font-display text-h3">
-											@{site.contact.instagram.handle}
-										</h3>
-										<p className="mt-4 text-body text-ink-soft">
-											Follow for new arrivals, or send a direct message for a
-											quick reply.
-										</p>
-										<div className="mt-6 flex flex-wrap items-center gap-3">
-											<LinkButton href={igDm} variant="solid" size="md">
-												<InstagramIcon className="h-4 w-4" strokeWidth={1.25} />
-												Send a DM
-											</LinkButton>
-											<LinkButton href={igProfile} variant="ghost" size="md">
-												Follow
-											</LinkButton>
-										</div>
-									</div>
-								</Reveal>
-
-								<Reveal delay={0.2}>{catalogueCard}</Reveal>
 							</div>
-						</>
-					) : (
-						/* ---------- WhatsApp not configured: Instagram primary ---------- */
-						<>
-							<Reveal delay={0.1}>
-								<div className="mx-auto mt-16 max-w-3xl border border-border bg-surface p-8 sm:p-12">
-									<Eyebrow rule>Instagram — Primary</Eyebrow>
-									<h2 className="mt-4 font-display text-h3">Message VELLORA</h2>
-									<p className="mt-4 max-w-lg text-body text-ink-soft">
-										Personal assistance for any piece in the collection —
-										sizing, availability, or a private enquiry. Send us a direct
-										message on Instagram.
-									</p>
-									<div className="mt-8 flex flex-wrap items-center gap-3">
-										<LinkButton href={igDm} variant="solid" size="lg">
-											<InstagramIcon className="h-4 w-4" strokeWidth={1.25} />
-											Message on Instagram
-										</LinkButton>
-										<LinkButton href={igProfile} variant="ghost" size="md">
-											@{site.contact.instagram.handle}
-										</LinkButton>
-									</div>
-								</div>
-							</Reveal>
-
-							<div className="mx-auto mt-6 max-w-3xl">
-								<Reveal delay={0.15}>{catalogueCard}</Reveal>
-							</div>
-						</>
+						</Reveal>
 					)}
 
-					<Reveal delay={0.25}>
+					<div
+						className={`mx-auto mt-6 grid max-w-4xl gap-6 sm:grid-cols-2 ${
+							waConfigured ? "" : "sm:grid-cols-2"
+						}`}
+					>
+						<Reveal delay={0.15}>
+							<div className="h-full border border-border p-8">
+								<Eyebrow>Instagram</Eyebrow>
+								<h3 className="mt-4 font-display text-h3">
+									@{site.contact.instagram.handle}
+								</h3>
+								<p className="mt-4 text-body text-ink-soft">
+									Follow for new arrivals, or send a direct message for a quick
+									reply.
+								</p>
+								<div className="mt-6 flex flex-wrap items-center gap-3">
+									<LinkButton href={igDm} variant="solid" size="md">
+										<InstagramIcon className="h-4 w-4" strokeWidth={1.25} />
+										Send a DM
+									</LinkButton>
+									<LinkButton href={igProfile} variant="ghost" size="md">
+										Follow
+									</LinkButton>
+								</div>
+							</div>
+						</Reveal>
+
+						<Reveal delay={0.2}>
+							<div className="h-full border border-border p-8">
+								<Eyebrow>Email</Eyebrow>
+								<h3 className="mt-4 break-all font-display text-h3">{email}</h3>
+								<p className="mt-4 text-body text-ink-soft">
+									For detailed enquiries or documentation, reach our support
+									team directly.
+								</p>
+								<div className="mt-6">
+									<LinkButton
+										href={`mailto:${email}`}
+										variant="outline"
+										size="md"
+									>
+										<Mail className="h-4 w-4" strokeWidth={1.25} />
+										Send an Email
+									</LinkButton>
+								</div>
+							</div>
+						</Reveal>
+
+						<Reveal delay={0.25}>
+							<div className="h-full border border-border p-8 sm:col-span-2">
+								<Eyebrow>Catalogue</Eyebrow>
+								<h3 className="mt-4 font-display text-h3">Full Catalogue</h3>
+								<p className="mt-4 text-body text-ink-soft">
+									The complete selection is hosted externally. Browse every
+									piece in one place.
+								</p>
+								<div className="mt-6">
+									{catExternal ? (
+										<LinkButton href={catHref} variant="outline" size="md">
+											View Full Catalogue
+											<ArrowUpRight className="h-4 w-4" strokeWidth={1.25} />
+										</LinkButton>
+									) : (
+										<LinkButton to={catHref} variant="outline" size="md">
+											Browse Collections
+											<ArrowUpRight className="h-4 w-4" strokeWidth={1.25} />
+										</LinkButton>
+									)}
+								</div>
+							</div>
+						</Reveal>
+					</div>
+
+					<Reveal delay={0.3}>
 						<p className="mx-auto mt-16 max-w-lg text-center text-small text-ink-soft">
 							Enquiries are answered personally. For a piece-specific question,
 							please mention the product reference in your message.

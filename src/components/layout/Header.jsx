@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Instagram, Menu as MenuIcon } from "lucide-react";
+import { Instagram, MessageCircle, Menu as MenuIcon } from "lucide-react";
 import Wordmark from "../shared/Wordmark.jsx";
 import MobileMenu from "./MobileMenu.jsx";
 import LinkButton from "../ui/LinkButton.jsx";
 import { useScrolled } from "../../hooks/useScrolled.js";
 import { getCatalogueHref, isCatalogueExternal } from "../../lib/links.js";
+import { buildWhatsAppUrl, isWhatsAppConfigured } from "../../lib/contact.js";
 import { site } from "../../config/site.js";
 
 const NAV = [
@@ -38,6 +39,8 @@ export default function Header() {
 
 	const catHref = getCatalogueHref();
 	const catExternal = isCatalogueExternal();
+	const waConfigured = isWhatsAppConfigured();
+	const waUrl = buildWhatsAppUrl();
 
 	return (
 		<>
@@ -71,6 +74,20 @@ export default function Header() {
 					</nav>
 
 					<div className="hidden items-center gap-1 lg:flex">
+						{waConfigured && waUrl && (
+							<a
+								href={waUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label="Message VELLORA on WhatsApp"
+								className="inline-flex h-11 w-11 items-center justify-center text-ink-soft transition-colors duration-[var(--duration-fast)] hover:text-ink"
+							>
+								<MessageCircle
+									className="h-[18px] w-[18px]"
+									strokeWidth={1.25}
+								/>
+							</a>
+						)}
 						<a
 							href={site.contact.instagram.profileUrl}
 							target="_blank"

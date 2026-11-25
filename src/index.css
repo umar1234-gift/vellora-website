@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-/* ============================================================
-   VELLORA — Design tokens (Tailwind CSS v4 CSS-first config)
-   Quiet Luxury + Modern Editorial
-   ============================================================ */
-
 @theme {
 	/* ---------- Colour ---------- */
 	--color-background: #f7f2ea;
@@ -14,6 +9,8 @@
 	--color-champagne: #c9b48e;
 	--color-champagne-deep: #9a7b4f;
 	--color-border: #e2dfd9;
+	--color-navy: #1a2744;
+	--color-navy-soft: #253352;
 
 	/* ---------- Typography ---------- */
 	--font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
@@ -58,10 +55,6 @@
 	--duration-base: 400ms;
 	--duration-slow: 700ms;
 }
-
-/* ============================================================
-   Base layer — typography defaults, accessibility, motion
-   ============================================================ */
 
 @layer base {
 	html {
@@ -128,10 +121,6 @@
 		}
 	}
 }
-
-/* ============================================================
-   Skip-to-content link — keyboard-only, revealed on focus
-   ============================================================ */
 
 .skip-link {
 	position: absolute;
