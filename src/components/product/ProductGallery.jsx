@@ -35,10 +35,10 @@ export default function ProductGallery({ product }) {
 			<div className="relative aspect-[4/5] w-full overflow-hidden bg-surface">
 				<img
 					src={activeSrc}
-					alt={`${product.name} — ${categoryLabel} — image ${activeIndex + 1} of ${images.length}`}
+					alt={`${product.name} — VELLORA ${categoryLabel}, photo ${activeIndex + 1} of ${images.length}`}
 					loading="eager"
 					decoding="async"
-					fetchPriority="high"
+					fetchpriority="high"
 					className="absolute inset-0 h-full w-full object-cover"
 				/>
 				<div

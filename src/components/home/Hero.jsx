@@ -76,7 +76,7 @@ export default function Hero() {
 										src={heroImage}
 										alt="Editorial photograph from the VELLORA collection"
 										loading="eager"
-										fetchPriority="high"
+										fetchpriority="high"
 										decoding="async"
 										className="absolute inset-0 h-full w-full object-cover"
 									/>

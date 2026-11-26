@@ -18,7 +18,7 @@ export default function ProductCard({ product }) {
 				{primaryImage ? (
 					<img
 						src={primaryImage}
-						alt={`${product.name} — ${categoryLabel}`}
+						alt={`${product.name} — VELLORA ${categoryLabel}`}
 						loading="lazy"
 						decoding="async"
 						className="absolute inset-0 h-full w-full object-cover transition-transform duration-[var(--duration-slow)] ease-[var(--ease-luxury)] group-hover:scale-[1.03]"

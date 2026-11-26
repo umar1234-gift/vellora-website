@@ -13,7 +13,7 @@ export default function CategoryCard({ category }) {
 			{hasImage && (
 				<img
 					src={category.image}
-					alt={category.label}
+					alt={`${category.label} — VELLORA collection`}
 					loading="lazy"
 					decoding="async"
 					className="absolute inset-0 h-full w-full object-cover transition-transform duration-[var(--duration-slow)] ease-[var(--ease-luxury)] group-hover:scale-[1.03]"

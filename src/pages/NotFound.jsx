@@ -8,6 +8,7 @@ export default function NotFound() {
 			<Seo
 				title="Page not found"
 				description="The page you were looking for could not be found."
+				noindex
 			/>
 			<div className="py-24 lg:py-32">
 				<Container>

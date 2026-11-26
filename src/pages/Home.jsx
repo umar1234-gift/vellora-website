@@ -1,5 +1,6 @@
 import Seo from "../components/ui/Seo.jsx";
 import Hero from "../components/home/Hero.jsx";
+import { organizationSchema, websiteSchema } from "../lib/schema.js";
 import FeaturedCategories from "../components/home/FeaturedCategories.jsx";
 import SelectedProducts from "../components/home/SelectedProducts.jsx";
 import HowItWorks from "../components/home/HowItWorks.jsx";
@@ -14,9 +15,11 @@ export default function Home() {
 	return (
 		<>
 			<Seo
-				description="Elegance is noticed. Luxury is remembered. A curated house of handbags, shoes, watches, jewellery and sunglasses."
+				absoluteTitle="VELLORA — Luxury Handbags, Shoes, Watches & Jewellery"
+				description="VELLORA is a curated house of luxury handbags, shoes, watches, jewellery and sunglasses. Browse the collection and enquire personally on WhatsApp or Instagram."
 				path="/"
-				image={heroImage}
+				preloadImage={heroImage}
+				jsonLd={[organizationSchema(), websiteSchema()]}
 			/>
 			<Hero />
 			<FeaturedCategories />

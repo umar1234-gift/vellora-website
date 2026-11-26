@@ -14,10 +14,20 @@ import "@fontsource/jost/500.css";
 import App from "./App.jsx";
 import "./index.css";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const rootEl = document.getElementById("root");
+
+const app = (
 	<React.StrictMode>
 		<BrowserRouter>
 			<App />
 		</BrowserRouter>
-	</React.StrictMode>,
+	</React.StrictMode>
 );
+
+/* Prerendered pages are hydrated. The 404 fallback page is served for
+   many different URLs, so it is rendered fresh instead of hydrated. */
+if (rootEl.hasChildNodes() && !rootEl.hasAttribute("data-fallback")) {
+	ReactDOM.hydrateRoot(rootEl, app);
+} else {
+	ReactDOM.createRoot(rootEl).render(app);
+}

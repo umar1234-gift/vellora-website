@@ -16,7 +16,7 @@ export default function AboutPreview() {
 								{aboutImage ? (
 									<img
 										src={aboutImage}
-										alt="VELLORA brand imagery"
+										alt="VELLORA — The House of VELLORA, brand photograph"
 										loading="lazy"
 										decoding="async"
 										className="absolute inset-0 h-full w-full object-cover"
